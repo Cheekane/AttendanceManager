@@ -16,6 +16,8 @@ contains the React app and uses express to request functions on UI events
 
 ## To run properly
 
+install Node.js package manager (npm) and MySQL (database server)
+
 need .env file with the host, user, password and database environment variables
 
 also use "npm install" to get the node_modules
