@@ -3,31 +3,32 @@ import React, { useState } from 'react'
 import { useNavigate, useLocation, Link } from 'react-router-dom'
 
 const Update = () => {
-    const [member,setMember] = useState({
-        name:"",
+    const [member, setMember] = useState({
+        firstname:"",
+        lastname:"",
         membership:"",
         age:""
     })
 
-const navigate = useNavigate()
-const location = useLocation()
+    const navigate = useNavigate()
+    const location = useLocation()
 
-const memberId = location.pathname.split("/")[2] // gets the memberId from /update/:id <- as "id"
+    const memberId = location.pathname.split("/")[2] // splits and gets the memberId from localhost:3000/update/:id <- as "id" (index 2)
 
-const handleChange = (event) => {
-    setMember((prev) => ({ ...prev, [event.target.name]: event.target.value }))
-}
-
-const handleClick = async (event) => {
-    event.preventDefault() // to prevent default page refresh
-
-    try {
-        await axios.put(`http://localhost:8800/${memberId}`, member)
-        navigate("/")
-    } catch (err) {
-        console.log(err)
+    const handleChange = (event) => {
+        setMember((prev) => ({ ...prev, [event.target.name]: event.target.value }))
     }
-}
+
+    const handleClick = async (event) => {
+        event.preventDefault() // to prevent default page refresh
+
+        try {
+            await axios.put(`http://localhost:8800/member/${memberId}`, member)
+            navigate("/home")
+        } catch (err) {
+            console.log(err)
+        }
+    }
 
     console.log(member)
 
@@ -37,8 +38,14 @@ const handleClick = async (event) => {
             <input 
             type="text" 
             onChange={handleChange} 
-            placeholder="name" 
-            name="name" 
+            placeholder="firstname" 
+            name="firstname" 
+            />
+            <input 
+            type="text" 
+            onChange={handleChange} 
+            placeholder="lastname" 
+            name="lastname" 
             />
             <input 
             type="text" 
@@ -55,7 +62,7 @@ const handleClick = async (event) => {
             <button className="formButton" onClick={handleClick}>Update</button>
 
             <button className="">
-                <Link to="/">Members</Link>
+                <Link to="/home" style={{ color: "inherit", textDecoration: "none" }}>Home</Link>
             </button>
         </div>
     )

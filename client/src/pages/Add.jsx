@@ -3,28 +3,29 @@ import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 
 const Add = () => {
-    const [member,setMember] = useState({
-        name:"",
+    const [member, setMember] = useState({
+        firstname:"",
+        lastname:"",
         membership:"",
         age:""
     })
 
-const navigate = useNavigate()
+    const navigate = useNavigate()
 
-const handleChange = (event) => {
-    setMember((prev) => ({ ...prev, [event.target.name]: event.target.value }))
-}
-
-const handleClick = async (event) => {
-    event.preventDefault() // to prevent default page refresh
-    
-    try {
-        await axios.post("http://localhost:8800", member)
-        navigate("/")
-    } catch (err) {
-        console.log(err)
+    const handleChange = (event) => {
+        setMember((prev) => ({ ...prev, [event.target.name]: event.target.value }))
     }
-}
+
+    const handleClick = async (event) => {
+        event.preventDefault() // to prevent default page refresh
+        
+        try {
+            await axios.post("http://localhost:8800/member", member)
+            navigate("/home")
+        } catch (err) {
+            console.log(err)
+        }
+    }
 
     console.log(member)
 
@@ -34,8 +35,14 @@ const handleClick = async (event) => {
             <input 
             type="text" 
             onChange={handleChange} 
-            placeholder="name" 
-            name="name" 
+            placeholder="firstname" 
+            name="firstname" 
+            />
+            <input 
+            type="text" 
+            onChange={handleChange} 
+            placeholder="lastname" 
+            name="lastname" 
             />
             <input 
             type="text" 
@@ -52,7 +59,7 @@ const handleClick = async (event) => {
             <button className="formButton" onClick={handleClick}>Add</button>
 
             <button className="">
-                <Link to="/">Members</Link>
+                <Link to="/home" style={{ color: "inherit", textDecoration: "none" }}>home</Link>
             </button>
         </div>
     )

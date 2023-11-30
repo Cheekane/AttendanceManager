@@ -1,6 +1,7 @@
 require('dotenv').config({path:'../.env'}) // looks into parent directory (config -> backend)
 const mysql = require('mysql2')
 
+// connects to the mysql database
 const pool = mysql.createPool({
     host: process.env.MYSQL_HOST,
     user: process.env.MYSQL_USER,
@@ -16,10 +17,6 @@ promisePool
     .getConnection()
     .then(() => {
         console.log("Connection pool created successfully")
-        // pool.query("CREATE DATABASE mydb", (err, res) => { // creates database named mydb
-        //     if (err) throw err
-        //     console.log("Database created")
-        // })
     })
     .catch((error) => {
         console.error("Error creating connection pool:", error)
