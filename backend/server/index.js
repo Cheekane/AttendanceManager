@@ -17,6 +17,16 @@ app.get("/members", (req, res) => { // functions with parameters request and res
     })
 })
 
+app.get("/member/:id", (req, res) => {
+    const memberId = req.params.id
+    const q = "SELECT * FROM members WHERE id = ?"
+
+    pool.query(q, [memberId], (err, data) => {
+        if (err) return res.json(err)
+        return res.json(data[0]) // returns the first object in the array
+    })
+})
+
 app.post("/member", (req, res) => {
     const q = "INSERT INTO members (`firstname`, `lastname`, `membership`, `age`) VALUES (?)"
     const values = [
