@@ -1,6 +1,6 @@
 import axios from "axios"
 import React, { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Add = () => {
     const [member, setMember] = useState({
@@ -27,6 +27,14 @@ const Add = () => {
         }
     }
 
+    const handleClickHome = async () => {
+        try {
+            navigate("/home")
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
     console.log(member)
 
     return (
@@ -35,13 +43,13 @@ const Add = () => {
             <input 
             type="text" 
             onChange={handleChange} 
-            placeholder="firstname" 
+            placeholder="first name" 
             name="firstname" 
             />
             <input 
             type="text" 
             onChange={handleChange} 
-            placeholder="lastname" 
+            placeholder="last name" 
             name="lastname" 
             />
             <input 
@@ -56,11 +64,8 @@ const Add = () => {
             placeholder="age" 
             name="age" 
             />
-            <button className="formButton" onClick={handleClick}>Add</button>
-
-            <button className="">
-                <Link to="/home" style={{ color: "inherit", textDecoration: "none" }}>home</Link>
-            </button>
+            <button className="button__add" onClick={handleClick}>Add</button>
+            <button className="button__home" onClick={handleClickHome}>Home</button>
         </div>
     )
 }

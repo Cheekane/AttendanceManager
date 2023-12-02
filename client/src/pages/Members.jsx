@@ -1,11 +1,11 @@
-import React from "react"
-import { useEffect } from "react"
-import { useState } from "react"
 import axios from "axios"
-import { Link } from "react-router-dom"
+import React, { useState, useEffect } from "react"
+import { useNavigate } from 'react-router-dom'
 
 const Members = () => {
   const [member, setMembers] = useState([])
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchAllMembers = async () => {
@@ -19,13 +19,31 @@ const Members = () => {
     fetchAllMembers()
   }, [])
 
-  console.log(member);
+  console.log(member)
 
-// deletes a member with the id
+  // deletes a member with the id
   const handleDelete = async (id) => {
     try {
       await axios.delete(`http://localhost:8800/member/${id}`) // gets a member with id
       window.location.reload()
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const handleClickInfo = async (id) => {
+    try {
+      member.map((member) => (
+        navigate(`/memberInfo/${id}`)
+      ))
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const handleClickAdd = async () => {
+    try {
+      navigate("/add")
     } catch (err) {
       console.log(err)
     }
@@ -38,30 +56,12 @@ const Members = () => {
         {member.map((member) => (
           <div key={member.id} className="member">
             <h2>{member.firstname} {member.lastname}</h2>
-            <button className="memberInfo">
-              <Link to={`/memberInfo/${member.id}`} style={{ color: "inherit", textDecoration: "none" }}>
-                Info
-              </Link>
-            </button>
-
-            <p>Membership: {member.membership}</p>
-            <p>Age: {member.age}</p>
-
+            <button className="memberInfo" onClick={() => handleClickInfo(member.id)}>Info</button>
             <button className="delete" onClick={() => handleDelete(member.id)}>Delete</button>
-            <button className="update">
-              <Link to={`/update/${member.id}`} style={{ color: "inherit", textDecoration: "none" }}>
-                Update
-              </Link>
-            </button>
           </div>
         ))}
       </div>
-
-      <button className="addHome">
-        <Link to="/add" style={{ color: "inherit", textDecoration: "none" }}>
-          Add new member
-        </Link>
-      </button>
+      <button className="button__add" onClick={handleClickAdd}>Add New Member</button>
     </div>
   )
 }

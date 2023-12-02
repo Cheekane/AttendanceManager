@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Add from "./pages/Add"
 import Members from "./pages/Members"
-import Update from "./pages/Update"
-import "./style.css"
+import MemberInfo from "./pages/MemberInfo"
+import "./style.scss"
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
           <Routes>
             <Route path="/home" element={<Members/>}/>
             <Route path="/add" element={<Add/>}/>
-            <Route path="/update/:id" element={<Update/>}/>
+            <Route path="/memberInfo/:id" element={<MemberInfo/>}/>
           </Routes>
         </BrowserRouter>
     </div>
