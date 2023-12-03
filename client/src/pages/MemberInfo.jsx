@@ -2,7 +2,6 @@ import axios from "axios"
 import React, { useState, useEffect } from "react"
 import { useLocation, useNavigate } from 'react-router-dom'
 
-
 const MemberInfo = () => {
     const [member, setMember] = useState({})
 
@@ -20,13 +19,12 @@ const MemberInfo = () => {
             }
         }
         fetchMember()
-    }, [memberId])
+    }, [memberId]) // dependency on the member id to change state
 
     console.log(member)
     
     const handleChange = async (event) => {
-        setMember((prev) => ({ ...prev, [event.target.name]: event.target.value }));
-        console.log(event.target.value)
+        setMember((prev) => ({ ...prev, [event.target.name]: event.target.value }))
     }
 
     const handleClickUpdate = async (event) => {

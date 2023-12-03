@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Add from "./pages/Add"
-import Members from "./pages/Members"
+import Home from "./pages/Home"
 import MemberInfo from "./pages/MemberInfo"
 import "./style.scss"
 
@@ -9,7 +9,7 @@ function App() {
     <div className="App">
         <BrowserRouter>
           <Routes>
-            <Route path="/home" element={<Members/>}/>
+            <Route path="/home" element={<Home/>}/>
             <Route path="/add" element={<Add/>}/>
             <Route path="/memberInfo/:id" element={<MemberInfo/>}/>
           </Routes>
