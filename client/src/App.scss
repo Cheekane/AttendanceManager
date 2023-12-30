@@ -1,0 +1,93 @@
+.App {
+  padding: 0px 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.header {
+  padding-bottom: 2rem;
+  font-size: 48px;
+}
+
+.members {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  font-size: 1.25rem;
+}
+
+.member {
+  width: calc(33.33% - 20px); /* Set the width to approximately 33.33% with some margin */
+  margin: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 1.25rem;
+}
+
+input {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.25rem;
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  gap: 10px;
+  width: 250px;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 4px;
+  border: 1px solid black;
+}
+
+.form {
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  height: 30px;
+  width: 250px;
+  margin: 10px;
+  font-size: 1.25rem;
+  border-radius: 4px;
+  line-height: .5rem;
+  border-width: 1px;
+}
+
+.button {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  height: 30px;
+  width: 250px;
+  margin: 10px;
+  font-size: 1.25rem;
+  border-radius: 4px;
+  line-height: .5rem;
+  border-width: 1px;
+
+  &__update, &__add {
+    border: 10px;
+    border-color: black;
+    padding: 10px;
+    background-color: lightcoral;
+    border-width: 1px;
+  }
+
+}
+
+
+h1 {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h2 {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+p {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
