@@ -8,6 +8,7 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+// gets all members
 app.get("/members", (req, res) => { // functions with parameters request and response "naming conventions"
     const q = "SELECT * FROM members"
 
@@ -17,6 +18,7 @@ app.get("/members", (req, res) => { // functions with parameters request and res
     })
 })
 
+// gets one member with specific id
 app.get("/member/:id", (req, res) => {
     const memberId = req.params.id
     const q = "SELECT * FROM members WHERE id = ?"
@@ -24,6 +26,18 @@ app.get("/member/:id", (req, res) => {
     pool.query(q, [memberId], (err, data) => {
         if (err) return res.json(err)
         return res.json(data[0]) // returns the first object in the array
+    })
+})
+
+// gets members with substring
+app.get("/members/:str", (req, res) => {
+    const str = req.params.str
+    console.log("search: ", str)
+    const q = "SELECT * FROM members WHERE firstname LIKE ?" // Correct the SQL query
+
+    pool.query(q, [`%${str}%`], (err, data) => { // Use `%${str}%` for substring matching
+        if (err) return res.json(err)
+        return res.json(data)
     })
 })
 
