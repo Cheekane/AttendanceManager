@@ -2,7 +2,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Add from "./pages/Add"
 import Home from "./pages/Home"
 import MemberInfo from "./pages/MemberInfo"
-import "./style.scss"
+import "./App.scss"
+import "./components/SearchBar.scss"
 
 function App() {
   return (

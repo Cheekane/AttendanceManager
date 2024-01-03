@@ -1,0 +1,19 @@
+.results-list {
+    background-color: white;
+    display: block;
+    flex-direction: column;
+    box-shadow: 0 0 8px #ddd;
+    max-height: 300px;
+    overflow-y: scroll;
+    text-align: left;
+    position: relative;
+    margin-right: 5.85rem;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.result-fullname {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+}

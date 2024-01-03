@@ -1,42 +1,49 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
+import SearchResults from "./SearchResults"
 
-const SearchBar = () => {
-  const [searchTerm, setSearchTerm] = useState("")
-  const [searchResults, setSearchResults] = useState([])
+const SearchBar = ({setResults}) => { // use prop from Home
+  const [input, setInput] = useState("")
 
-  useEffect(() => {
-    // function to fetch data based on the search term
-    const fetchSearchResults = async () => {
-      try {
-        const res = await axios.get(`http://localhost:8800/members?search=${searchTerm}`)
-        setSearchResults(res.data)
-      } catch (error) {
-        console.error("Error fetching search results:", error)
+  const fetchData = async (value) => {
+    try {
+      // API request gets members with input value like firstname
+      if (value !== "") {
+        const res = await axios.get(`http://localhost:8800/members/${value}`)
+        // set results state to API request data from members
+        setResults(res.data)
+      } else {
+        setResults([])
       }
+      
+    } catch (error) {
+      console.error("Error fetching search results: ", error)
     }
-
-    // call the function when searchTerm changes
-    fetchSearchResults()
-  }, [searchTerm])
-
-  const handleInputChange = (event) => {
-    setSearchTerm(event.target.value)
   }
 
+  // handles the input change on the searchbar
+  const handleChange = (value) => {
+    setInput(value)
+    fetchData(value)
+  }
+
+  const search = (search) => {
+    setInput(search)
+    console.log("search ", search)
+  }  
+
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Search members..."
-        value={searchTerm}
-        onChange={handleInputChange}
-      />
-      <ul>
-        {searchResults.map((result) => (
-          <li key={result.id}>{`${result.firstname} ${result.lastname}`}</li>
-        ))}
-      </ul>
+    <div className="searchContainer">
+      <div className="searchInner">
+        <input 
+          className="searchbar" 
+          type="text" 
+          placeholder="Search members..." 
+          value={input} 
+          onChange={(e) => handleChange(e.target.value)}
+        />
+        <button className="button__search" onClick={() => search(input)}>Search</button>
+      </div>
     </div>
   )
 }

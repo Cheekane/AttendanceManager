@@ -1,7 +1,9 @@
 import axios from "axios"
 import React, { useState, useEffect } from "react"
-import { useNavigate } from 'react-router-dom'
-import SearchBar from "../components/SearchBar"
+import { useNavigate } from "react-router-dom"
+import SearchBar from "../components/SearchBar.jsx"
+import SearchResults from "../components/SearchResults.jsx"
+import "./Home.scss"
 
 const Members = () => {
   const [members, setMembers] = useState([])
@@ -36,28 +38,34 @@ const Members = () => {
     navigate("/add");
   }
 
+  const [results, setResults] = useState([]) // connects the stateful variable to the search bar and search results components
+
   return (
-    <div>
-      <h1>Members</h1>
-      <div className="searchBar">
-        <SearchBar />
+    <div className="main-container">
+      <h1 className="header">MEMBERS</h1>
+      <div className="nagivation">
+
+      </div>
+      <button className="button__add" onClick={handleClickAdd}>
+        Add New Member
+      </button>
+      <div className="searchbar-container">
+        <SearchBar setResults={setResults} />
+        <SearchResults results={results} />
       </div>
       <div className="members">
         {members.map((member) => (
           <div key={member.id} className="member">
             <h2>{member.firstname} {member.lastname}</h2>
-            <button className="memberInfo" onClick={() => handleClickInfo(member.id)}>
+            <button onClick={() => handleClickInfo(member.id)}>
               Info
             </button>
-            <button className="delete" onClick={() => handleDelete(member.id)}>
+            <button onClick={() => handleDelete(member.id)}>
               Delete
             </button>
           </div>
         ))}
       </div>
-      <button className="button__add" onClick={handleClickAdd}>
-        Add New Member
-      </button>
     </div>
   )
 }

@@ -20,7 +20,7 @@ const MemberInfo = () => {
         }
         fetchMember()
     }, [memberId]) // dependency on the member id to change state
-
+    
     console.log(member)
     
     const handleChange = async (event) => {
@@ -49,9 +49,6 @@ const MemberInfo = () => {
     return (
         <div>
             <h1>Information</h1>
-            
-
-            
                 <div className="form">
                     <input 
                         type="text" 

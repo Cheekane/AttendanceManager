@@ -32,7 +32,6 @@ app.get("/member/:id", (req, res) => {
 // gets members with substring
 app.get("/members/:str", (req, res) => {
     const str = req.params.str
-    console.log("search: ", str)
     const q = "SELECT * FROM members WHERE firstname LIKE ?" // Correct the SQL query
 
     pool.query(q, [`%${str}%`], (err, data) => { // Use `%${str}%` for substring matching
