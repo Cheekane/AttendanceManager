@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import SearchBar from "../components/SearchBar.jsx"
 import SearchResults from "../components/SearchResults.jsx"
+import NavigationBar from "../components/NavigationBar.jsx"
 import "./Home.scss"
 
 const Members = () => {
@@ -30,11 +31,11 @@ const Members = () => {
     }
   }
 
-  const handleClickInfo = (id) => {
+  const handleClickInfo = (id) => { // handles clicks on info buttons
     navigate(`/memberInfo/${id}`)
   }
 
-  const handleClickAdd = () => {
+  const handleClickAdd = () => { // handles clicks on add buttons
     navigate("/add");
   }
 
@@ -43,8 +44,8 @@ const Members = () => {
   return (
     <div className="main-container">
       <h1 className="header">MEMBERS</h1>
-      <div className="nagivation">
-
+      <div className="nagivation-bar">
+        <NavigationBar />
       </div>
       <button className="button__add" onClick={handleClickAdd}>
         Add New Member
