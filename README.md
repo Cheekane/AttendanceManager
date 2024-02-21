@@ -30,3 +30,4 @@ then also install the proper JSON packages:
 - react-router-dom
 - axios
 - nodemon (recommended)
+- scss
