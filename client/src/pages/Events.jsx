@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react"
 import { useNavigate } from "react-router-dom"
+import NavigationBar from "../components/NavigationBar.jsx"
 import "./Events.scss"
 
 const Events = () => {
@@ -8,7 +9,7 @@ const Events = () => {
 
     return (
         <div className="main-container">
-            
+            <NavigationBar />
         </div>
     )
 
