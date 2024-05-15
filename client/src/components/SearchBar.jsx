@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import axios from "axios"
 import SearchResults from "./SearchResults"
 
-const SearchBar = ({setResults}) => { // use prop from Home
+const SearchBar = ({ results, setResults }) => { // use prop from Home
   const [input, setInput] = useState("")
 
   const fetchData = async (value) => {
@@ -27,14 +27,15 @@ const SearchBar = ({setResults}) => { // use prop from Home
     fetchData(value)
   }
 
-  const search = (search) => {
-    setInput(search)
-    console.log("search ", search)
+  const search = (input) => {
+    setInput(input)
+    console.log("search ", input)
   }  
 
   return (
-    <div className="searchContainer">
-      <div className="searchInner">
+    <div className="search-container">
+      <div className="search-inner">
+        <button className="search-button" onClick={() => search(input)}></button>
         <input 
           className="searchbar" 
           type="text" 
@@ -42,8 +43,9 @@ const SearchBar = ({setResults}) => { // use prop from Home
           value={input} 
           onChange={(e) => handleChange(e.target.value)}
         />
-        <button className="button__search" onClick={() => search(input)}>Search</button>
+        
       </div>
+      <SearchResults results={results} />
     </div>
   )
 }

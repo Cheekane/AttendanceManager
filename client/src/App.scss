@@ -1,35 +1,21 @@
 .App {
-  padding: 0px 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: #ccc;
 }
 
-input {
+.input {
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 1.25rem;
   display: flex;
   text-align: left;
+  align-items: center;
   flex-direction: column;
-  gap: 10px;
-  width: 250px;
   padding: 10px;
-  border: 1px solid gray;
-  border-radius: 4px;
-  border: 1px solid black;
 }
 
-h1 {
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-h2 {
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-p {
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+h1, h2, p {
+  font-family:'Chilanka';
 }
 

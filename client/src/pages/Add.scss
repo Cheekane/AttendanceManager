@@ -1,7 +1,8 @@
 .form {
     display:flex;
     flex-direction: column;
-    gap: 10px;
+    justify-content: left;
+    align-items: center;
   }
   
 
@@ -12,15 +13,10 @@
     margin: 10px;
     font-size: 1.25rem;
     border-radius: 4px;
-    line-height: .5rem;
-    border-width: 1px;
   
     &__update {
-        border: 10px;
-        border-color: black;
         padding: 10px;
         background-color: lightcoral;
-        border-width: 1px;
     }
 }
 
