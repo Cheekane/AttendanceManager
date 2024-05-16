@@ -4,9 +4,8 @@ import {KindeProvider} from "@kinde-oss/kinde-auth-react";
 import Add from "./pages/Add";
 import Home from "./pages/Home";
 import MemberInfo from "./pages/MemberInfo";
-import Profile from "./pages/Profile";
-import Events from "./pages/Events";
-import Contacts from "./pages/Contacts";
+import Attendees from "./pages/Attendees";
+import Settings from "./pages/Settings";
 import "./App.scss";
 import "./components/SearchBar.scss";
 
@@ -24,9 +23,8 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/add" element={<Add />} />
             <Route path="/memberInfo/:id" element={<MemberInfo />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/events" element={<Events />} />
-            <Route path="/contacts" element={<Contacts />} />
+            <Route path="/attendees" element={<Attendees />} />
+            <Route path="/settings" element={<Settings />} />
           </Routes>
         </BrowserRouter>
       </KindeProvider>

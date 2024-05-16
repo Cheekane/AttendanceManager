@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 .App {
+  font-family: "quicksand";
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,7 +9,6 @@
 }
 
 .input {
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 1.25rem;
   display: flex;
   text-align: left;
@@ -15,7 +17,4 @@
   padding: 10px;
 }
 
-h1, h2, p {
-  font-family:'Chilanka';
-}
 
