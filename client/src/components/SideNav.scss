@@ -1,6 +1,6 @@
 .sidenav-container {
     position: fixed;
-    width: 12vw;
+    width: 12rem;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -10,11 +10,13 @@
     background-color: white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    flex-shrink: 0;
 }
 
 .logo {
     width: max;
     display: flex;
+    flex-shrink: 0;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -46,7 +48,8 @@
   .menu-content {
     display: flex;
     align-items: center;
-    padding: 20px 2rem;
+    padding: 1rem 2rem;
+    margin: 0.5rem 0 0.5rem 0;
     border-radius: 0.5rem;
   }
 

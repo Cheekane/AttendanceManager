@@ -43,27 +43,12 @@ const Home = () => {
 
   return (
     <div className="main-container">
-      <SideNav/>
-      <Header/>
       <div className="body-container">
-      
-        <button className="add-button" onClick={handleClickAdd}>
-          + Add Member
-        </button>
-        <SearchBar results={ results } setResults={ setResults } />
-
-        <div className="members">
-          {members.map((member) => (
-            <div key={member.id} className="member">
-              <h2>{member.firstname} {member.lastname}</h2>
-              <button onClick={() => handleClickInfo(member.id)}>
-                Info
-              </button>
-              <button onClick={() => handleDelete(member.id)}>
-                Delete
-              </button>
-            </div>
-          ))}
+        <div className="section-name-container">
+          <h1 className="section-name">Dashboard</h1>
+        </div>
+        <div className="add-group-container">
+          <button className="add-group" type="button" onClick={handleClickInfo}>+ New Group</button>
         </div>
       </div>
     </div>
