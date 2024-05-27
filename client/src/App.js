@@ -1,26 +1,20 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { KindeProvider } from "@kinde-oss/kinde-auth-react";
 import Add from "./pages/Add";
 import Home from "./pages/Home";
 import MemberInfo from "./pages/MemberInfo";
 import Attendees from "./pages/Attendees";
 import Settings from "./pages/Settings";
-import "./App.scss";
-import "./components/SearchBar.scss";
 import Header from "./components/Header"
 import SideNav from "./components/SideNav"
+import Register from "./pages/Register";
+import "./App.scss";
 
 export default function App() {
+
   return (
     <main className="App">
-      <KindeProvider
-        clientId="2bcdcfc158c24899a021adee832659f4"
-        domain="https://cheekane.kinde.com"
-        redirectUri="http://localhost:3000"
-        logoutUri="http://localhost:3000"
-      >
-        <BrowserRouter>
+      <BrowserRouter>
         <Header />
         <SideNav />
           <Routes>
@@ -29,10 +23,11 @@ export default function App() {
             <Route path="/memberInfo/:id" element={<MemberInfo />} />
             <Route path="/attendees" element={<Attendees />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/register" element={<Register />} />
           </Routes>
         
-        </BrowserRouter>
-      </KindeProvider>
+      </BrowserRouter>
+      
     </main>
   );
 }

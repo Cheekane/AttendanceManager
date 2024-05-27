@@ -43,7 +43,7 @@ const Home = () => {
 
   return (
     <div className="main-container">
-      <div className="body-container">
+      <div className="home-top-container">
         <div className="section-name-container">
           <h1 className="section-name">Dashboard</h1>
         </div>
