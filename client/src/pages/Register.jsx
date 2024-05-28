@@ -2,6 +2,7 @@ import React from 'react'
 import { useRef, useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleInfo, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
+import './Register.scss'
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/
@@ -56,37 +57,37 @@ const Register = () => {
     return (
         <div className='main-container'>
             <div className='register-container'>
-                <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-                <h1>Register</h1>
-                <form>
-                    <label htmlFor='username'>
-                        Username:
+                <div className='register-input-section'>
+                    <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+                    <h1>Register</h1>
+                    <form className='form-container'>
                         <span className={validName ? "valid" : "hide"}>
                             <FontAwesomeIcon icon={faCheck} />
                         </span>
-                        <span className={validName || !user ? "hide" : "invalid"}> // hide x if the name is valid or if there is no user state
+                        <span className={validName || !user ? "hide" : "invalid"}>
                             <FontAwesomeIcon icon={faTimes} />
                         </span>
-                    </label>
-                    <input
-                        type='text'
-                        id='username'
-                        ref={userRef}
-                        autoComplete='off'
-                        onChange={(e) => setUser(e.target.value)}
-                        required
-                        aria-invalid={validName ? "false" : "true"}
-                        aria-describedby='uidnote'
-                        onFocus={() => setUserFocus(true)}
-                        onBlur={() => setUserFocus(false)}
-                    />
-                    <p id='uidnote' className={userFocus && user && !validName ? "instructions" : "offscreen"}> // if the userFocus is true && if user state is not empty && if there isnt a validName
-                        <FontAwesomeIcon icon={faCircleInfo} /> // uses font awesome info circle icon
-                        4 to 24 characters.<br/>
-                        Must begin with a letter.<br/>
-                        Letters, numbers, underscores, hyphens allowed.
-                    </p>
-                </form>
+                        <input
+                            type='text'
+                            id='username'
+                            placeholder='username'
+                            ref={userRef}
+                            autoComplete='off'
+                            onChange={(e) => setUser(e.target.value)}
+                            required
+                            aria-invalid={validName ? "false" : "true"}
+                            aria-describedby='uidnote'
+                            onFocus={() => setUserFocus(true)}
+                            onBlur={() => setUserFocus(false)}
+                        />
+                        <p id='uidnote' className={userFocus && user && !validName ? "instructions" : "offscreen"}>
+                            <FontAwesomeIcon icon={faCircleInfo} />
+                            4 to 24 characters.<br/>
+                            Must begin with a letter.<br/>
+                            Letters, numbers, underscores, hyphens allowed.
+                        </p>
+                    </form>
+                </div>
             </div>
         </div>
     )

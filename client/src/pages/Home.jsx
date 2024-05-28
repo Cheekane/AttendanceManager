@@ -48,7 +48,7 @@ const Home = () => {
           <h1 className="section-name">Dashboard</h1>
         </div>
         <div className="add-group-container">
-          <button className="add-group" type="button" onClick={handleClickInfo}>+ New Group</button>
+          <button className="add-group" type="button" onClick={handleClickAdd}>+ New Group</button>
         </div>
       </div>
     </div>
