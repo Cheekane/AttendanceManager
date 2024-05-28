@@ -7,7 +7,7 @@
 }
 
 .register-input-section {
-    width: 25%;
+    width: 20%;
     height: 60%;
     display: flex;
     flex-direction: column;
@@ -17,20 +17,27 @@
 .form-container {
     width: 100%;
     height: 100%;
-    margin: 1rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
-#username {
-    width: 80%;
-    height: 1.5rem;
+.username-container, .password-container, .confirm-password-container {
+    margin: 0.5rem 0 0.5rem 0;
 }
 
-#password {
-    width: 80%;
+#username, #password, #confirm_pwd {
+    width: 100%;
     height: 1.5rem;
+    font-family: "quicksand";
+    box-sizing: border-box;
+}
+
+#uidnote, #pwdnote {
+    color: white;
+    background-color: black;
+    padding: 5px;
+    margin: 0;
+    border-radius: 5px;
 }
 
 .offscreen {
@@ -58,4 +65,8 @@
     font-weight: bold;
     padding: 0.5rem;
     margin-bottom: 0.5rem;
+}
+
+.instructions {
+    font-size: 12px;
 }
