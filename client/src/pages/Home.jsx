@@ -1,10 +1,7 @@
 import axios from "axios"
 import React, { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import SearchBar from "../components/SearchBar.jsx"
-import Header from "../components/Header.jsx"
 import "./Home.scss"
-import SideNav from "../components/SideNav.jsx"
 
 const Home = () => {
   const [members, setMembers] = useState([])

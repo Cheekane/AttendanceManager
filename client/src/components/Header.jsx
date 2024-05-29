@@ -1,21 +1,15 @@
 import React from 'react'
-import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
+import { useNavigate } from "react-router-dom"
 import "./Header.scss"
 
 const Header = () => {
-  const { login, register } = useKindeAuth()
-
-  const { logout } = useKindeAuth()
-
-  console.log(process.env.REACT_APP_CLIENT_ID)
+  const navigate = useNavigate()
 
   return (
     <div className="header-container">
       <div className="header-view-container">
         <div className="login-container">
-          <button onClick={register} type="button">Register</button>
-          <button onClick={login} type="button">Log In</button>
-          <button onClick={logout} type="button">Sign out</button>
+          <button onClick={() => {navigate('/register')}} type="button">Register</button>
         </div>
       </div>
     </div>

@@ -54,13 +54,27 @@ const Register = () => {
         setErrMsg('')
     }, [user, pwd, matchPwd])
 
+    const handleSubmit = async (e) => {
+        // prevents default page refresh
+        e.preventDefault()
+        
+        const v1 = USER_REGEX.test(user)
+        const v2 = PWD_REGEX.test(pwd)
+        if (!v1 || !v2) {
+            setErrMsg("Invalid Entry")
+            return
+        }
+        console.log("signed up")
+        setSuccess(true)
+    }
+
     return (
-        <div className='main-container'>
+        <div className='container'>
             <div className='register-container'>
                 <div className='register-input-section'>
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     <h1>Register</h1>
-                    <form className='form-container'>
+                    <form className='form-container' onSubmit={handleSubmit}>
                         <div className='username-container'>
                             <label htmlFor='username'>
                                 Username:
@@ -132,14 +146,23 @@ const Register = () => {
                                 onChange={(e) => setMatchPwd(e.target.value)}
                                 required
                                 aria-invalid={validMatch ? "false" : "true"}
-                                aria-describedby='pwdnote'
+                                aria-describedby='confirmnote'
                                 onFocus={() => setMatchFocus(true)}
                                 onBlur={() => setMatchFocus(false)}
                             />
-                            <p id='pwdnote' className={matchPwd && !validMatch ? "instructions" : "offscreen"}>
+                            <p id='confirmnote' className={matchPwd && !validMatch ? "instructions" : "offscreen"}>
                                 <FontAwesomeIcon icon={faCircleInfo} />
                                 &nbsp; Passwords must match.<br/>
                             </p>
+                        </div>
+                        <div className='register-button-container'>
+                            <button 
+                                className="register-button"
+                                type='submit' 
+                                disabled={validName && validPwd && validMatch ? false : true}
+                            >
+                                Sign up
+                            </button>
                         </div>
                     </form>
                 </div>
