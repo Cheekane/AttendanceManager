@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { useNavigate } from "react-router-dom"
 import "./SearchResults.scss"
 
-const SearchResults = ({results}) => {
+const SearchResults = ({ results }) => {
     const navigate = useNavigate()
     const handleClick = (id) => {
         navigate(`/memberInfo/${id}`)

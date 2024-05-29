@@ -1,54 +1,30 @@
-.header {
-    padding-bottom: 1rem;
-    font-size: 48px;
-}
-  
-.members {
+.home-top-container {
+    width: max;
+    height: 10%;
     display: flex;
-    flex-wrap: wrap;
-    overflow-y: auto;
-    font-size: 1.25rem;
-    margin-top: 20rem;
-}
-  
-.member {
-    width: calc(33.33% - 20px); /* Set the width to approximately 33.33% with some margin */
-    margin: 10px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    box-sizing: border-box;
-    font-size: 1.25rem;
+    justify-content: space-between;
+    margin: 0 1rem 0 1rem;
 }
 
-button {
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    height: 30px;
-    width: 250px;
-    margin: 10px;
-    font-size: 1.25rem;
-    border-radius: 4px;
-    line-height: .5rem;
-    border-width: 1px;
-    position: relative;
-  }
-  
-  .button {
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    height: 30px;
-    width: 250px;
-    margin: 10px;
-    font-size: 1.25rem;
-    border-radius: 4px;
-    line-height: .5rem;
-    border-width: 1px;
-  
-    &__add {
-      border: 10px;
-      border-color: black;
-      padding: 10px;
-      background-color: lightcoral;
-      border-width: 1px;
-      position: relative;
-      display: flex;
-    }
-  }
+.add-group-container {
+    width: 15%;
+    text-align: center;
+    align-content: center;
+}
+
+.add-group {
+    font-family: "quicksand";
+    font-size: 20px;
+    font-weight: 700;
+    width: 10rem;
+    height: 2.5rem;
+    border: 1px solid #bbb;
+    border-radius: 0.2rem;
+    background-color: #731dff;
+    color: white;
+    cursor: pointer;
+}
+
+.add-group:hover {
+    filter: brightness(90%);
+}

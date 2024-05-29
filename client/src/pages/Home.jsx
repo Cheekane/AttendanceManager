@@ -1,14 +1,13 @@
 import axios from "axios"
 import React, { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import SearchBar from "../components/SearchBar.jsx"
-import SearchResults from "../components/SearchResults.jsx"
-import NavigationBar from "../components/NavigationBar.jsx"
 import "./Home.scss"
 
-const Members = () => {
+const Home = () => {
   const [members, setMembers] = useState([])
   const navigate = useNavigate()
+
+  const [results, setResults] = useState([])
 
   useEffect(() => {
     const fetchAllMembers = async () => {
@@ -39,36 +38,18 @@ const Members = () => {
     navigate("/add");
   }
 
-  const [results, setResults] = useState([]) // connects the stateful variable to the search bar and search results components
-
   return (
     <div className="main-container">
-      <h1 className="header">MEMBERS</h1>
-      <div className="nagivation-bar">
-        <NavigationBar />
-      </div>
-      <button className="button__add" onClick={handleClickAdd}>
-        Add New Member
-      </button>
-      <div className="searchbar-container">
-        <SearchBar setResults={setResults} />
-        <SearchResults results={results} />
-      </div>
-      <div className="members">
-        {members.map((member) => (
-          <div key={member.id} className="member">
-            <h2>{member.firstname} {member.lastname}</h2>
-            <button onClick={() => handleClickInfo(member.id)}>
-              Info
-            </button>
-            <button onClick={() => handleDelete(member.id)}>
-              Delete
-            </button>
-          </div>
-        ))}
+      <div className="home-top-container">
+        <div className="section-name-container">
+          <h1 className="section-name">Dashboard</h1>
+        </div>
+        <div className="add-group-container">
+          <button className="add-group" type="button" onClick={handleClickAdd}>+ New Group</button>
+        </div>
       </div>
     </div>
   )
 }
 
-export default Members
+export default Home
