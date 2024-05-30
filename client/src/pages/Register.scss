@@ -11,7 +11,12 @@
 }
 
 .logo {
-    margin-top: 1rem;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.line {
+    width: 80%;
 }
 
 .register-header {
@@ -112,6 +117,7 @@
     color: white;
     border: 0;
     border-radius: 5px;
+    margin-bottom: 2.5rem;
     cursor: pointer;
 }
 
@@ -120,7 +126,7 @@
     cursor: default;
 }
 
-.login-container {
+.login-link-container {
     margin: 3rem 0 3rem 0;
 }
 

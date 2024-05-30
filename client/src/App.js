@@ -8,6 +8,7 @@ import Settings from "./pages/Settings";
 import Header from "./components/Header"
 import SideNav from "./components/SideNav"
 import Register from "./pages/Register";
+import Login from "./pages/Login";
 import "./App.scss";
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
             <Route path="/attendees" element={<Attendees />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </ConditionalLayout>
       </BrowserRouter>
@@ -32,7 +34,7 @@ export default function App() {
 
 const ConditionalLayout = ({ children }) => {
   const location = useLocation()
-  const hideHeader_SideNav = location.pathname === '/register'
+  const hideHeader_SideNav = location.pathname === '/register' || location.pathname === '/login'
   
   const header_SideNav = (
     <>

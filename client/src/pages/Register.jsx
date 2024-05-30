@@ -65,7 +65,6 @@ const Register = () => {
             setErrMsg("Invalid Entry")
             return
         }
-        console.log("signed up")
         setSuccess(true)
     }
 
@@ -177,9 +176,9 @@ const Register = () => {
                             Sign up
                         </button>
                     </div>
-                    <div className='login-container'>
+                    <div className='login-link-container'>
                         Have an account?&nbsp;
-                        <a className='login-link' href="/">Log in</a>
+                        <a className='login-link' href="/login">Log in</a>
                     </div>
                 </div>
             </div>

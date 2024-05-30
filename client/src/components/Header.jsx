@@ -9,7 +9,8 @@ const Header = () => {
     <div className="header-container">
       <div className="header-view-container">
         <div className="login-container">
-          <button onClick={() => {navigate('/register')}} type="button">Register</button>
+          <button onClick={() => {navigate('/register')}} type='button'>Sign up</button>
+          <button onClick={() => {navigate('/login')}} type='button'>Log in</button>
         </div>
       </div>
     </div>
