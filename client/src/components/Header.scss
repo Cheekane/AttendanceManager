@@ -1,21 +1,16 @@
 .header-container {
-    position: absolute;
     width: 100%;
-    height: 3rem;
-    justify-content: right;
-    padding: 0.5rem 0.5rem 0.5rem 0;
-    right: 0;
+    height: 7%;
+    position: absolute;
     border: 1px solid #ccc;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 .header-view-container {
-    display: flex;
+    width: calc(100% - 10rem);
     height: 100%;
-    width: calc(100% - 12rem);
-    align-items: center;
-    justify-content: right;
-    margin-left: 12rem;
+    display: flex;
+    margin-left: 10rem;
 }
 
 .login-container {
