@@ -40,12 +40,17 @@ const Home = () => {
 
   return (
     <div className="main-container">
-      <div className="home-top-container">
-        <div className="section-name-container">
-          <h1 className="section-name">Dashboard</h1>
+      <div className="dashboard-container">
+        <div className="home-top-container">
+          <div className="section-name-container">
+            <h1 className="section-name">Dashboard</h1>
+          </div>
+          <div className="add-group-container">
+            <button className="add-group" type="button" onClick={handleClickAdd}>+ New Group</button>
+          </div>
         </div>
-        <div className="add-group-container">
-          <button className="add-group" type="button" onClick={handleClickAdd}>+ New Group</button>
+        <div className="home-body-container">
+          
         </div>
       </div>
     </div>
