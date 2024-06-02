@@ -1,16 +1,44 @@
-import React from 'react'
-import { useNavigate } from "react-router-dom"
+import React, { useState, useEffect, useRef } from 'react'
+import { CircleUserRound } from 'lucide-react'
+import SignedInDrop from './SignedInDrop'
 import "./Header.scss"
 
 const Header = () => {
-  const navigate = useNavigate()
+  const dropdownRef = useRef(null)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+
+  const [username, setUsername] = useState('Guest')
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(true) // profile click reveals or hides dropdown
+  }
+
+  const handleClickOutside = (e) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+      setIsDropdownOpen(false);
+    }
+  }
+
+  useEffect(() => {
+    if (isDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isDropdownOpen])
 
   return (
     <div className="header-container">
-      <div className="header-view-container">
-        <div className="login-container">
-          <button onClick={() => {navigate('/register')}} type='button'>Sign up</button>
-          <button onClick={() => {navigate('/login')}} type='button'>Log in</button>
+      <div className="header-section-container">
+        <div className="profile-container">
+          <CircleUserRound className="profile-icon" onClick={toggleDropdown} />
+          {isDropdownOpen && (
+            <SignedInDrop username={username} dropdownRef={dropdownRef} />
+          )}
         </div>
       </div>
     </div>
