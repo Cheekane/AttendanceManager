@@ -17,11 +17,15 @@
 }
 
 .profile-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    position: absolute;
+    top: 0.85rem;
+    right: 0;
+    border-radius: 4rem;
+    margin-right: 2rem;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
     cursor: pointer;
-}
-
-.profile-menu-container {
-    width: 10rem;
-    height: 20rem;
-    background-color: black;
 }

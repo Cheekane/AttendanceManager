@@ -11,7 +11,7 @@ const SideNav = () => {
       id: 1,
       name: "Dashboard",
       icon: <LayoutDashboard />,
-      path: "/dashboard"
+      path: "/"
     },
     {
       id: 2,

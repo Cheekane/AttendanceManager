@@ -1,20 +1,21 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from "react-router-dom";
-import "./Header.scss";
+import React, { useState, useEffect, useRef } from 'react'
 import { CircleUserRound } from 'lucide-react'
+import SignedInDrop from './SignedInDrop'
+import "./Header.scss"
 
 const Header = () => {
-  const navigate = useNavigate();
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const dropdownRef = useRef(null)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
 
-  const handleProfileClick = () => {
-    setIsDropdownOpen(!isDropdownOpen) // profile click reveals or hides dropdown
+  const [username, setUsername] = useState('Guest')
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(true) // profile click reveals or hides dropdown
   }
 
   const handleClickOutside = (e) => {
     if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-      setIsDropdownOpen(false)
+      setIsDropdownOpen(false);
     }
   }
 
@@ -34,15 +35,9 @@ const Header = () => {
     <div className="header-container">
       <div className="header-section-container">
         <div className="profile-container">
-          <CircleUserRound className="profile-icon" onClick={handleProfileClick}/>
+          <CircleUserRound className="profile-icon" onClick={toggleDropdown} />
           {isDropdownOpen && (
-            <div className='profile-menu-container' ref={dropdownRef}>
-              <ul>
-                <li onClick={() => navigate('/profile')}>Profile</li>
-                <li onClick={() => navigate('/settings')}>Settings</li>
-                <li onClick={() => navigate('/logout')}>Logout</li>
-              </ul>
-            </div>
+            <SignedInDrop username={username} dropdownRef={dropdownRef} />
           )}
         </div>
       </div>
