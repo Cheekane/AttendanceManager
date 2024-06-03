@@ -15,9 +15,9 @@ const SideNav = () => {
     },
     {
       id: 2,
-      name: "Attendees",
+      name: "Attendance",
       icon: <UsersRound />,
-      path: "/dashboard/attendees"
+      path: "/attendance"
     },
     {
       id: 3,
@@ -31,7 +31,7 @@ const SideNav = () => {
     <div className="sidenav-container">
         <div className="logo">
           <img src={monkey} className='logo-image' alt="logo" />
-          <h1 className='logo-name'>AHEND</h1>
+          <h1 className='logo-name'>ATEND</h1>
           <hr className='line'/>
         </div>
         <div className='menu-container'>

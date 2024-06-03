@@ -4,23 +4,19 @@ import SignedInDrop from './SignedInDrop'
 import "./Header.scss"
 
 const Header = () => {
-  const dropdownRef = useRef(null)
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-
+  const [isOpen, setIsOpen] = useState(false)
   const [username, setUsername] = useState('Guest')
+  const profileRef = useRef()
+  const dropdownRef = useRef()
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(true) // profile click reveals or hides dropdown
-  }
-
-  const handleClickOutside = (e) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-      setIsDropdownOpen(false);
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target) && !profileRef.current.contains(event.target)) {
+      setIsOpen(false)
     }
   }
-
+  
   useEffect(() => {
-    if (isDropdownOpen) {
+    if (isOpen) {
       document.addEventListener('mousedown', handleClickOutside)
     } else {
       document.removeEventListener('mousedown', handleClickOutside)
@@ -29,15 +25,20 @@ const Header = () => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
-  }, [isDropdownOpen])
+  }, [isOpen])
+  
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen)
+  }
 
   return (
     <div className="header-container">
       <div className="header-section-container">
         <div className="profile-container">
-          <CircleUserRound className="profile-icon" onClick={toggleDropdown} />
-          {isDropdownOpen && (
-            <SignedInDrop username={username} dropdownRef={dropdownRef} />
+          <CircleUserRound className="profile-icon" onClick={toggleDropdown} ref={profileRef} />
+          {isOpen && (
+            <SignedInDrop username={username} isOpen={isOpen} dropdownRef={dropdownRef} />
           )}
         </div>
       </div>

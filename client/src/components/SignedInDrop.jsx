@@ -4,7 +4,7 @@ import { LogOut, Settings, BookUser } from 'lucide-react'
 import './SignedInDrop.scss'
 
 
-const SignedInDrop = ({ username, dropdownRef }) => {
+const SignedInDrop = ({ username, isOpen, dropdownRef }) => {
     const navigate = useNavigate();
 
     const dropdownList = [
@@ -26,7 +26,7 @@ const SignedInDrop = ({ username, dropdownRef }) => {
     ]
     
     return (
-        <div className='profile-menu-container' ref={dropdownRef}>
+        <div className={`profile-menu-container ${isOpen ? 'open' : ''}`} ref={dropdownRef}>
             <ul className='dropdown-container'>
                 <li className='dropdown-top-container'>
                     <div className='profile-username-container'>
