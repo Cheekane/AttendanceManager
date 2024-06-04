@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom"
 import { LayoutDashboard, UsersRound, Settings } from "lucide-react"
 import monkey from "../images/monkey.png"
-import "./SideNav.scss"
+import "./styles/SideNav.scss"
 
 const SideNav = () => {
 

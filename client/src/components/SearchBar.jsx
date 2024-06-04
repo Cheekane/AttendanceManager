@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import axios from "axios"
 import SearchResults from "./SearchResults"
+import './styles/SearchBar.scss'
 
 const SearchBar = ({ results, setResults }) => { // use prop from Home
   const [input, setInput] = useState("")

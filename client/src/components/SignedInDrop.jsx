@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useNavigate } from "react-router-dom"
 import { LogOut, Settings, BookUser } from 'lucide-react'
-import './SignedInDrop.scss'
+import './styles/SignedInDrop.scss'
 
 
 const SignedInDrop = ({ username, isOpen, dropdownRef }) => {

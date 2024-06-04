@@ -1,6 +1,6 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
-import "./SearchResults.scss"
+import "./styles/SearchResults.scss"
 
 const SearchResults = ({ results }) => {
     const navigate = useNavigate()

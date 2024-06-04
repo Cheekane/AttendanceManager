@@ -3,7 +3,7 @@ import { useRef, useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleInfo, faCheck, faTimes, faC } from '@fortawesome/free-solid-svg-icons'
 import monkey from "../images/monkey.png"
-import './Register.scss'
+import './styles/Register.scss'
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,24}$/

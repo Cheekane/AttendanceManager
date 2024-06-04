@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import './Login.scss'
+import './styles/Login.scss'
 import monkey from "../images/monkey.png"
 
 
@@ -53,7 +53,7 @@ const Login = () => {
                                 className="login-button"
                                 type='submit' 
                             >
-                                Sign up
+                                Log in
                             </button>
                         </div>
                     </form>

@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Add from "./pages/Add";
 import Home from "./pages/Home";
 import MemberInfo from "./pages/MemberInfo";
-import Attendees from "./pages/Attendees";
+import Attendance from "./pages/Attendance";
 import Settings from "./pages/Settings";
 import Header from "./components/Header"
 import SideNav from "./components/SideNav"
@@ -21,7 +21,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/add" element={<Add />} />
             <Route path="/memberInfo/:id" element={<MemberInfo />} />
-            <Route path="/attendees" element={<Attendees />} />
+            <Route path="/attendance" element={<Attendance />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />

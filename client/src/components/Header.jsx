@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { CircleUserRound } from 'lucide-react'
 import SignedInDrop from './SignedInDrop'
-import "./Header.scss"
+import "./styles/Header.scss"
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
