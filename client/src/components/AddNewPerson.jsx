@@ -7,18 +7,17 @@ Modal.setAppElement('#root')
 
 const AddNewPerson = () => {
     const [isOpen, setIsOpen] = useState(false)
-
-    function openModal() {
+    
+    const openModal = () => {
         setIsOpen(true)
     }
-    
-    function closeModal() {
+    const closeModal = () => {
         setIsOpen(false)
     }
 
     return (
         <div className="add-person-container">
-            <button className="add-person" type="button" onClick={() => {setIsOpen(true)}}>
+            <button className="add-person" type="button" onClick={openModal}>
                 +&nbsp; <UsersRound />
             </button>
             <Modal
@@ -53,7 +52,6 @@ const AddNewPerson = () => {
                         <div className='input-wrapper'>
                             <label>Select Group</label>
                             <select id='group'>
-                                <option>Select Group</option>
                                 <option value={'Elementary School'}>Elementary</option>
                                 <option value={'High School'}>High School</option>
                                 <option value={'College/University'}>College/University</option>
