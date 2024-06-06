@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './styles/Attendance.scss'
 import AddNewPerson from '../components/AddNewPerson'
 
 const Attendance = () => {
-
 
   return (
     <div className="main-container">

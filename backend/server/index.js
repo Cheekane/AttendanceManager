@@ -8,7 +8,8 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-// gets all members
+// define methods and their parameters here
+
 app.get("/members", (req, res) => { // functions with parameters request and response "naming conventions"
     const q = "SELECT * FROM members"
 

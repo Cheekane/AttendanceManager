@@ -11,8 +11,29 @@ const AddNewPerson = () => {
     const openModal = () => {
         setIsOpen(true)
     }
+    
     const closeModal = () => {
         setIsOpen(false)
+    }
+
+    const [person, setPerson] = useState({
+        firstname:'',
+        lastname:'',
+        group:'',
+        phoneNumber:'',
+    })
+
+    const handleChange = (event) => {
+        setPerson({
+            ...person,
+            [event.target.id]: event.target.value,
+        })
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        
+        
     }
 
     return (
@@ -30,12 +51,13 @@ const AddNewPerson = () => {
                 <div className='modal-input-container'>
                     <h2 className='subtitle'>Add New Person</h2>
                     <X className='modal-close' onClick={closeModal}/>
-                    <form className='modal-form'>
+                    <form className='modal-form' onSubmit={handleSubmit}>
                         <div className='input-wrapper'>
                             <label>Firstname</label>
                             <input 
                                 type='text'
                                 id='firstname'
+                                value={person.firstname}
                                 placeholder='Firstname'
                                 required
                             />
@@ -45,13 +67,18 @@ const AddNewPerson = () => {
                             <input 
                                 type='text'
                                 id='lastname'
+                                value={person.lastname}
                                 placeholder='Lastname'
                                 required
                             />
                         </div>
                         <div className='input-wrapper'>
                             <label>Select Group</label>
-                            <select id='group'>
+                            <select 
+                                id='group'
+                                value={person.group}
+                                onChange={handleChange}
+                            >
                                 <option value={'Elementary School'}>Elementary</option>
                                 <option value={'High School'}>High School</option>
                                 <option value={'College/University'}>College/University</option>
@@ -62,7 +89,8 @@ const AddNewPerson = () => {
                             <label>Phone Number</label>
                             <input 
                                 type='tel'
-                                id='cellnumber'
+                                id='phonenumber'
+                                value={person.phoneNumber}
                                 placeholder='Phone number'
                                 required
                             />
