@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import Modal from 'react-modal'
+import axios from "axios"
 import { UsersRound, X } from 'lucide-react'
 import './styles/AddNewPerson.scss'
 
 Modal.setAppElement('#root')
 
-const AddNewPerson = () => {
+const AddNewPerson = ({ sendSonner }) => {
     const [isOpen, setIsOpen] = useState(false)
     
     const openModal = () => {
@@ -13,15 +14,19 @@ const AddNewPerson = () => {
     }
     
     const closeModal = () => {
+        setPerson(initialFormData)
         setIsOpen(false)
     }
 
-    const [person, setPerson] = useState({
-        firstname:'',
-        lastname:'',
-        group:'',
-        phoneNumber:'',
-    })
+    const initialFormData = {
+        firstname:"",
+        lastname:"",
+        category:"",
+        email:"",
+        phoneNumber:"",
+    }
+
+    const [person, setPerson] = useState(initialFormData)
 
     const handleChange = (event) => {
         setPerson({
@@ -30,9 +35,14 @@ const AddNewPerson = () => {
         })
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault()
         
+        axios
+        .post("http://localhost:8800/person", person)
+        .then(
+            sendSonner(person.firstname, person.lastname),
+        )
         
     }
 
@@ -50,35 +60,39 @@ const AddNewPerson = () => {
             >
                 <div className='modal-input-container'>
                     <h2 className='subtitle'>Add New Person</h2>
-                    <X className='modal-close' onClick={closeModal}/>
+                    <X className='modal-close' onClick={closeModal} />
                     <form className='modal-form' onSubmit={handleSubmit}>
                         <div className='input-wrapper'>
-                            <label>Firstname</label>
+                            <label>First Name</label>
                             <input 
                                 type='text'
                                 id='firstname'
                                 value={person.firstname}
-                                placeholder='Firstname'
+                                placeholder='First Name'
+                                onChange={handleChange}
                                 required
                             />
                         </div>
                         <div className='input-wrapper'>
-                            <label>Lastname</label>
+                            <label>Last Name</label>
                             <input 
                                 type='text'
                                 id='lastname'
                                 value={person.lastname}
-                                placeholder='Lastname'
+                                placeholder='Last Name'
+                                onChange={handleChange}
                                 required
                             />
                         </div>
                         <div className='input-wrapper'>
-                            <label>Select Group</label>
+                            <label>Select Category</label>
                             <select 
-                                id='group'
-                                value={person.group}
+                                id='category'
+                                value={person.category}
                                 onChange={handleChange}
+                                required
                             >
+                                <option value={''}>Select Category</option>
                                 <option value={'Elementary School'}>Elementary</option>
                                 <option value={'High School'}>High School</option>
                                 <option value={'College/University'}>College/University</option>
@@ -86,17 +100,29 @@ const AddNewPerson = () => {
                             </select>
                         </div>
                         <div className='input-wrapper'>
+                            <label>Email</label>
+                            <input 
+                                type='text'
+                                id='email'
+                                value={person.email}
+                                placeholder='Email'
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                        <div className='input-wrapper'>
                             <label>Phone Number</label>
                             <input 
                                 type='tel'
-                                id='phonenumber'
+                                id='phoneNumber'
                                 value={person.phoneNumber}
-                                placeholder='Phone number'
+                                placeholder='Phone Number'
+                                onChange={handleChange}
                                 required
                             />
                         </div>
                         <div className='button-wrapper'>
-                            <button className='modal-cancel-button' onClick={() => {setIsOpen(false)}}>Cancel</button>
+                            <button className='modal-cancel-button' onClick={closeModal}>Cancel</button>
                             <button className='modal-add-button'>Save</button>
                         </div>
                     </form>

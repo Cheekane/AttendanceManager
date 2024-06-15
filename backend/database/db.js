@@ -22,4 +22,17 @@ promisePool
         console.error("Error creating connection pool:", error)
     })
 
-module.exports = pool
+const insertPerson = async (firstname, lastname, category, email, phoneNumber) => {
+    try {
+        const [result] = await promisePool.query(`
+            INSERT INTO attendees (firstname, lastname, category, email, phoneNumber)
+            VALUES (?, ?, ?, ?, ?)
+        `, [firstname, lastname, category, email, phoneNumber])
+        return result[0]
+    } catch (error) {
+        console.error('Error inserting person', error)
+        throw error
+    }
+}
+
+module.exports = { insertPerson }

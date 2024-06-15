@@ -1,8 +1,14 @@
 import React, { useState } from 'react'
 import './styles/Attendance.scss'
 import AddNewPerson from '../components/AddNewPerson'
+import { Toaster, toast } from 'sonner'
 
 const Attendance = () => {
+  const [isSuccessful, setSuccessful] = useState(false)
+
+  const sendSonner = (firstname, lastname) => {
+    toast.success(`Successfully added ${firstname} ${lastname}`)
+  };
 
   return (
     <div className="main-container">
@@ -11,10 +17,10 @@ const Attendance = () => {
           <div className="section-name-container">
             <h1 className="section-name">Attendance</h1>
           </div>
-            <AddNewPerson />
+            <AddNewPerson sendSonner={ sendSonner } />
         </div>
         <div className="home-body-container">
-          
+            <Toaster />
         </div>
       </div>
     </div>

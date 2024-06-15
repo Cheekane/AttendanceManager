@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
-import Add from "./pages/Add";
 import Home from "./pages/Home";
 import MemberInfo from "./pages/MemberInfo";
 import Attendance from "./pages/Attendance";
@@ -19,7 +18,6 @@ export default function App() {
         <ConditionalLayout>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/add" element={<Add />} />
             <Route path="/memberInfo/:id" element={<MemberInfo />} />
             <Route path="/attendance" element={<Attendance />} />
             <Route path="/settings" element={<Settings />} />
