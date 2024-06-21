@@ -1,0 +1,67 @@
+.group-card-container {
+    width: calc(100vw - 22rem);
+    height: calc(100vh - 24rem);
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    margin: 1rem;
+    padding: 1rem;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.card-section {
+    width: 80%;
+    height: 80%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.group-name {
+    margin: 0;
+}
+
+.card-body-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.remove-group-button {
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0.5rem;
+    border-radius: 1rem;
+    background-color: #ccc;
+}
+
+.remove-group-button:hover {
+    cursor: pointer;
+}
+
+.edit-group-button {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    background-color: #ccc;
+    cursor: pointer;
+}
