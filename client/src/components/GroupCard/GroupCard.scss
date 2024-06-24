@@ -1,0 +1,119 @@
+.group-card-container {
+    width: calc(100vw - 22rem);
+    height: calc(100vh - 33rem);
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    margin: 1rem;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    overflow-x: auto;
+}
+
+.card-section {
+    width: 25rem;
+    height: 20rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.group-name {
+    margin: 0;
+}
+
+.group-card-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.remove-group-button {
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0.5rem;
+    border-radius: 1rem;
+    background-color: #ccc;
+}
+
+.remove-group-button:hover {
+    cursor: pointer;
+}
+
+.group-card-description-section {
+    width: 20rem;
+    margin-top: 1rem;
+}
+
+.group-description {
+    width: 100%;
+    margin: 0;
+
+    display: -webkit-box; 
+            -webkit-box-orient: vertical; 
+            -webkit-line-clamp: 10; 
+            overflow: hidden; 
+            text-overflow: ellipsis;
+}
+
+.stats-group-button {
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    bottom: 1rem;
+    left: 10rem;
+    border: 0;
+    border-radius: 1rem;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.edit-group-button {
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    bottom: 1rem;
+    right: 10rem;
+    border: 0;
+    border-radius: 1rem;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.pagination-container {
+    margin: 0 1rem 0 1rem;
+}
+
+.pagination-button {
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    border-radius: 2rem;
+    margin: 0 3px;
+    font-family: 'quicksand';
+    font-size: 12pt;
+    font-weight: 600;
+    background-color: #cfcfcf;
+    cursor: pointer;
+}
+
+.pagination-button.active {
+    background-color: black;
+    color: white;
+}

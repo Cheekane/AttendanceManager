@@ -1,14 +1,13 @@
 import React from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
-import Add from "./pages/Add";
-import Home from "./pages/Home";
-import MemberInfo from "./pages/MemberInfo";
-import Attendees from "./pages/Attendees";
-import Settings from "./pages/Settings";
-import Header from "./components/Header"
-import SideNav from "./components/SideNav"
-import Register from "./pages/Register";
-import Login from "./pages/Login";
+import Home from "./pages/Home/Home";
+import MemberInfo from "./pages/MemberInfo/MemberInfo";
+import Attendance from "./pages/Attendance/Attendance";
+import Settings from "./pages/Settings/Settings";
+import Header from "./components/Header/Header"
+import SideNav from "./components/SideNav/SideNav"
+import Register from "./pages/Register/Register";
+import Login from "./pages/Login/Login";
 import "./App.scss";
 
 export default function App() {
@@ -19,9 +18,8 @@ export default function App() {
         <ConditionalLayout>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/add" element={<Add />} />
             <Route path="/memberInfo/:id" element={<MemberInfo />} />
-            <Route path="/attendees" element={<Attendees />} />
+            <Route path="/attendance" element={<Attendance />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
