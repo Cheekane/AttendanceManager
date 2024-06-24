@@ -49,6 +49,7 @@ const AddNewGroup = ({ addGroup }) => {
             await addGroup(group)
             closeModal()
         } catch (error) {
+            setGroup(initialFormData)
             console.error('Failed to add group:', error)
         }
     }
