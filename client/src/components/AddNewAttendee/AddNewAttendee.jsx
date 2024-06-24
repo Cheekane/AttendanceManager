@@ -51,7 +51,7 @@ const AddNewattendee = () => {
             } else {
                 // Add the new attendee
                 await axios.post("http://localhost:8800/attendee", attendee)
-                toast.success(`Successfully added ${attendee.firstname} ${attendee.lastname}`)
+                toast.success(`Attendee added: ${attendee.firstname} ${attendee.lastname}`)
                 closeModal()
             }
         } catch (error) {

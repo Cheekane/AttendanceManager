@@ -1,7 +1,7 @@
 require('dotenv').config()
 const express = require("express")
 const cors = require('cors')
-const { insertAttendee, getAttendee, getGroups, createGroupTable, deleteGroup } = require('../database/db.js')
+const { insertAttendee, getAttendee, getGroupDesc, createGroupTable, deleteGroup } = require('../database/db.js')
 
 const app = express()
 
@@ -32,9 +32,9 @@ app.get("/attendee", async (req, res) => {
     }
 })
 
-app.get("/groups", async (req, res) => {
+app.get("/groupdesc", async (req, res) => {
     try {
-        const groups = await getGroups()
+        const groups = await getGroupDesc()
         res.status(200).send(groups)
     } catch (error) {
         console.error('Failed to fetch group data', error)

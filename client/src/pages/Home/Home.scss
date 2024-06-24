@@ -20,4 +20,6 @@
 .home-body-container {
     width: max;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }

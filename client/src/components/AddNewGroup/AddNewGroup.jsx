@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Modal from 'react-modal'
 import axios from "axios"
 import { CopyPlus, X } from 'lucide-react'
@@ -7,7 +7,7 @@ import './AddNewGroup.scss'
 
 Modal.setAppElement('#root')
 
-const AddNewGroup = () => {
+const AddNewGroup = ({ addGroup }) => {
     const [isOpen, setIsOpen] = useState(false)
     
     const openModal = () => {
@@ -42,18 +42,16 @@ const AddNewGroup = () => {
     }
 
     const handleSubmit = async (event) => {
-        event.preventDefault();
+        event.preventDefault()
     
         try {
             // Add the new group
-            await axios.post("http://localhost:8800/group", group);
-            toast.success(`Successfully added ${group.groupName}`);
+            await addGroup(group)
             closeModal()
         } catch (error) {
-            console.error('Failed to add group:', error);
-            toast.error('Failed to add group');
+            console.error('Failed to add group:', error)
         }
-    };
+    }
 
     return (
         <div className="add-group-container">
