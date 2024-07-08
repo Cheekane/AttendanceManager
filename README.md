@@ -2,7 +2,8 @@
 
 ## Presents data of attendees entered into form.
 
-![Screenshot 2024-02-21 162420](https://github.com/Cheekane/AttendanceManager/assets/96549640/b61a589d-de0e-41f7-a76d-1bab9c555d1c)
+![Screenshot 2024-07-07 195954](https://github.com/Cheekane/AttendanceManager/assets/96549640/c2afbf8e-672f-496e-9941-d413d660b6f1)
+
 
 ## Searchbar feature to find specific information. (name)
 
