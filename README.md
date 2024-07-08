@@ -2,12 +2,11 @@
 
 ## Presents data of attendees entered into form.
 
-![Screenshot 2024-07-07 195954](https://github.com/Cheekane/AttendanceManager/assets/96549640/c2afbf8e-672f-496e-9941-d413d660b6f1)
-
+![Screenshot 2024-07-07 200002](https://github.com/Cheekane/AttendanceManager/assets/96549640/6d27c7f1-5958-4171-b934-281a099584d7)
 
 ## Searchbar feature to find specific information. (name)
 
-![Screenshot 2024-02-21 162948](https://github.com/Cheekane/AttendanceManager/assets/96549640/46970708-67b4-44e9-b9c6-8bda84bd6363)
+![Screenshot 2024-07-07 195954](https://github.com/Cheekane/AttendanceManager/assets/96549640/c2afbf8e-672f-496e-9941-d413d660b6f1)
 
 ## Information modification page to update or delete information.
 
